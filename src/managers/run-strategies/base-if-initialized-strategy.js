@@ -62,7 +62,7 @@ var Strategy = classFrom(IdentityStrategy, {
         if (!runs || !runs.length) {
             return this.reset();
         }
-        var latestRun = this._sortRuns(runs);
+        var latestRun = this._sortRuns(runs)[0];
         var _this = this;
         var shouldReplay = false;
         var baseRuns = this._sortRuns(this._baseRuns(runs));
