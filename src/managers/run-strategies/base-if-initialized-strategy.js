@@ -32,7 +32,7 @@ var Strategy = classFrom(IdentityStrategy, {
         // creates a grand new run with group id (account too?) and set freshly created to true
         var session = this._auth.getCurrentUserSessionInfo();
         var opt = $.extend({
-            scope: { group: session.groupName }
+            scope: { group: session.groupId }
         }, this.runOptions);
 
         return this.run
@@ -53,7 +53,7 @@ var Strategy = classFrom(IdentityStrategy, {
         var session = JSON.parse(this._store.get(keyNames.EPI_SESSION_KEY) || '{}');
         return this.run.query({
             'user.id': session.userId || '0000',
-            'scope.group': session.groupName
+            'scope.group': session.groupId
         });
     },
 
